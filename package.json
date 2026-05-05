@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/readline-sync": "^1.4.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "name": "turma-control",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido para prática de **lógica de programação** utilizando **TypeScript**.",
+  "main": "main.ts",
+  "scripts": {
+    "start": "ts-node main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glesiosantos/turma-control.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/glesiosantos/turma-control/issues"
+  },
+  "homepage": "https://github.com/glesiosantos/turma-control#readme"
+}
