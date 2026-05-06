@@ -1,4 +1,5 @@
 const tela = require("readline-sync")
+const cadastro = require("./cadastro_aluno.ts")	
 
 function main() {
 
@@ -14,10 +15,12 @@ switch (opcao) {
 		loop = false
 		break
 		case "1":
+			cadastro.telaCadastro()
 			break
 		case "2":
 			break
 		case "3":
+			cadastro.telaListaAlunos()
 			break
 		default:
 			console.log("Opção inválida")
