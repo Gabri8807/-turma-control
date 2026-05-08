@@ -1,8 +1,12 @@
 const tela = require('readline-sync')
+const {titulo} = require('./utils')
+
 
 let notas: string[] = []
 
 function telaCadastrarNotas() {
+
+	titulo('Cadastro de notas')
 
 	console.log()
 	const n1 = tela.question('Digite a primeira nota: ')
