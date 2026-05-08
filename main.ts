@@ -1,5 +1,6 @@
 const tela = require("readline-sync")
 const cadastro = require("./cadastro_aluno.ts")	
+const notas = require("./cadastrar_notas.ts")
 
 function main() {
 
@@ -18,6 +19,7 @@ switch (opcao) {
 			cadastro.telaCadastro()
 			break
 		case "2":
+			notas.telaCadastrarNotas()
 			break
 		case "3":
 			cadastro.telaListaAlunos()
