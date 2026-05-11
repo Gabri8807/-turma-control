@@ -2,6 +2,8 @@ const tela = require('readline-sync')
 const {titulo} = require('./utils')
 
 let alunos: string[] = []
+const { addAluno, listarAlunos } = require('./data.ts')
+
 
 function telaCadastro() {
 	titulo("CADASTRO DE ALUNOS")
@@ -13,7 +15,10 @@ function telaCadastro() {
 	
 	const aluno = `${nomeAluno}, ${dataNascimento}, ${contato}, ${email}`
 	
+
 	alunos.push(aluno)
+
+	addAluno(nomeAluno, dataNascimento, contato, email)
 }
 
 function telaListaAlunos() {
@@ -22,6 +27,8 @@ function telaListaAlunos() {
 	for (let i = 0; i < alunos.length; i++) {
 		console.log(`${i + 1} - ${alunos[i]}`)
 	}
+
+	listarAlunos()
 }
 
 
