@@ -1,23 +1,36 @@
 const tela = require('readline-sync')
-const {titulo} = require('./utils.ts')
-const { alunos } = require('./data.ts')
-
-let notas: string[] = []
+const { titulo } = require('./utils')
+const { alunos, addNota } = require('./data')
 
 function telaCadastrarNotas() {
+  titulo('CADASTRO DE NOTAS')
 
-	titulo('CADASTRO DE NOTAS')
+  if (alunos.length === 0) {
+    console.log("Nenhum aluno cadastrado ainda.")
+    return
+  }
 
-	const idAluno:number = tela.question('Digite o id do aluno: ')
-	const posicao:number = Number(idAluno) - 1
+  for (let i = 0; i < alunos.length; i++) {
+    const partes = alunos[i].split(";")
+    console.log(`${i + 1} - ${partes[1]}`)
+  }
 
-	if (posicao === undefined) {
-		console.log('Aluno não encontrado')
-	} else {
-	const n1 = tela.question('Digite a primeira nota: ')
-	const n2 = tela.question('Digite a segunda nota: ')
-	const n3 = tela.question('Digite a terceira nota: ')
-   }
+  const idDigitado: string = tela.question('\nDigite o número do aluno: ')
+  const posicao: number = Number(idDigitado) - 1 
+
+  if (isNaN(posicao) || posicao < 0 || posicao >= alunos.length) {
+    console.log("Número inválido!")
+    return
+  }
+
+  const n1: string = tela.question('Nota 1 (0-10): ')
+  const n2: string = tela.question('Nota 2 (0-10): ')
+  const n3: string = tela.question('Nota 3 (0-10): ')
+
+  addNota(posicao, n1, n2, n3)
+
+  const nomeAluno = alunos[posicao].split(";")[1]
+  console.log(`\nNotas de ${nomeAluno} salvas com sucesso!`)
 }
 
 export { telaCadastrarNotas }

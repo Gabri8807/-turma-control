@@ -1,7 +1,7 @@
 const tela = require("readline-sync")
-const cadastro = require("./src/cadastro_aluno.ts")
-const { telaCadastrarNotas } = require("./src/cadastrar_notas.ts")
-const { gerarArquivo  } = require('./src/data.ts')
+const cadastro = require("./cadastro_aluno.ts")
+const { telaCadastrarNotas } = require("./cadastrar_notas.ts")
+const { gerarArquivo  } = require('./data.ts')
 
 // função inicial para chamar as telas
 function main() {
