@@ -1,37 +1,36 @@
 const tela = require("readline-sync")
-const cadastro = require("./cadastro_aluno.ts")	
-const notas = require("./cadastrar_notas.ts")
+const cadastro = require("./src/cadastro_aluno.ts")
+const { telaCadastrarNotas } = require("./src/cadastrar_notas.ts")
+const { gerarArquivo  } = require('./src/data.ts')
 
+// função inicial para chamar as telas
 function main() {
 
-	let loop = true
+  gerarArquivo("alunos.txt") // tem com responsabilidade de verificar se existe o arquivo	
+  let loop = true //inicializa o loop  
 
-	while (loop) {
-		
-	console.log("1 - cadastrar Alunos\n 2 - cadastrar Notas\n 3 - Listar\n 0 - Sair")
-
-		   const opcao: string = tela.question("Deseja continuar?: ")
-switch (opcao) {
-	case "0":
-		loop = false
-		break
-		case "1":
-			cadastro.telaCadastro()
-			break
-		case "2":
-			notas.telaCadastrarNotas()
-			break
-		case "3":
-			cadastro.telaListaAlunos()
-			break
-		default:
-			console.log("Opção inválida")
-			break
+  while(loop) { // roda até quando o usuário não digitar '0'
+    console.log("1 - Cadastrar aluno |  2 - Listar Aluno | 3 - Cadastrar Notas | 0 - Sair")
+    const opcao:string = tela.question("Deseja continuar? ")
+    switch(opcao) {
+      case "0":
+        loop = false //para parar o loop
+      break
+      case "1":
+        cadastro.telaCadastro()
+      break
+      case "2":
+        cadastro.telaListaAlunos()
+      break
+      case "3":
+        telaCadastrarNotas()
+      break
+      
+      default: // caso não coloque a opção valida cai aqui 
+        console.log("Opção invalida!")
+      break
+    } 
+  }
 }
-		   if (opcao === "0") loop = false
-
-		}
-		 
-}	
-
+// inicializar o sistema
 main()
